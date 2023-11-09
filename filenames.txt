@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/stephaniehicks/jhustatprogramming2023/main/data/SRR1039508_subset_1.fastq
+https://raw.githubusercontent.com/stephaniehicks/jhustatprogramming2023/main/data/SRR1039509_subset_1.fastq
+https://raw.githubusercontent.com/stephaniehicks/jhustatprogramming2023/main/data/SRR1039512_subset_1.fastq
+https://raw.githubusercontent.com/stephaniehicks/jhustatprogramming2023/main/data/SRR1039513_subset_1.fastq

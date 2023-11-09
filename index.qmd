@@ -91,8 +91,31 @@ As you read the introductions from other folks in the class, feel free to commen
 4.  List all the `.fastq` files that end in a 12 or 13.
 5.  Search for the string `NNNN` in the `SRR1039512_subset_1.fastq` file. In addition to returning the matched line in the `.fastq` file, your output should also return the two lines before and the four lines after the matching line.\
 6.  Write a for loop in the shell that iterates over each `.fastq` file. For each `.fastq` file, do the following. In the first 1000 rows for each file, count the number of lines where the "\@" symbol appears. Your final output should be four numbers printed to the screen.
-
 ```{bash}
-# Add your solution here
+## Part 0: show that URLs to fastq files are listed in filenames.txt
+echo Contents of filenames.txt:
+cat filenames.txt
+echo -e "\n"
 
+## Parts 1, 2, & 3: get fastq files from internet, place in /raw_data/fastq sub-directory
+if ! test -d ./raw_data/fastq;
+then /opt/homebrew/bin/wget -P ./raw_data/fastq -i filenames.txt
+fi
+
+## Part 4: list all fastq files that end in 12 or 13
+echo "fastq files ending in 12 or 13:"
+ls ./raw_data/fastq/*{12,13}_*.fastq
+echo -e "\n"
+
+## Part 5: Search for string with "NNNN" in SRR1039512_subset_1.fastq
+echo "Section of SRR1039512_subset_1.fastq containing 'NNNN'"
+grep -rn -B2 -A4 "NNNN" ./raw_data/fastq/SRR1039512_subset_1.fastq
+echo -e "\n"
+
+## Part 6: Count number of lines (in first 1000) containing the '@' symbol
+for filename in ./raw_data/fastq/*.fastq
+do
+echo $filename 
+head -n 1000 $filename | grep -c "@"
+done
 ```
